@@ -1,44 +1,43 @@
-import Head from "next/head";
-import { useState } from "react";
-import styles from "./index.module.css";
+import Head from 'next/head';
+import { useState } from 'react';
+import styles from './index.module.css';
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [questionInput, setQuestionInput] = useState('');
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
     event.preventDefault();
-    const response = await fetch("/api/generate", {
-      method: "POST",
+    const response = await fetch('/api/generate', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ animal: animalInput }),
+      body: JSON.stringify({ question: questionInput }),
     });
     const data = await response.json();
     setResult(data.result);
-    setAnimalInput("");
+    setAnswer('');
   }
 
   return (
     <div>
       <Head>
         <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>Hey I'm Sat and they made me into a stupid bot.</h3>
+        <h4>You can ask me questions if you want or not, idc</h4>
         <form onSubmit={onSubmit}>
           <input
-            type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            type='text'
+            name='Question'
+            placeholder='Ask a question'
+            value={questionInput}
+            onChange={(e) => setAnswer(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type='submit' value='Get answers' />
         </form>
         <div className={styles.result}>{result}</div>
       </main>
