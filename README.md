@@ -1,4 +1,4 @@
-# OpenAI API Quickstart - Node.js example app
+# OpenAI API - Next.js app
 
 It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
@@ -11,7 +11,7 @@ It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactj
 3. Navigate into the project directory
 
    ```bash
-   $ cd openai-quickstart-node
+   $ cd OpenAI-bot
    ```
 
 4. Install the requirements
